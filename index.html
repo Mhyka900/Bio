@@ -1,0 +1,2131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#10091d">
+  <meta name="description" content="Welcome to MHYKA's professional portfolio — creative design, technology, and digital solutions.">
+
+  <title>MHYKA | Creative Designer & Tech Enthusiast</title>
+
+  
+  <style>
+    /* =========================
+       GLOBAL SETTINGS
+    ========================= */
+
+    :root {
+      --background: #0b0712;
+      --background-soft: #10091d;
+      --surface: #171023;
+      --surface-light: #201532;
+      --purple: #8554d8;
+      --purple-light: #b89aff;
+      --text: #f8f5ff;
+      --muted: #b4a9c7;
+      --border: rgba(190, 160, 255, 0.15);
+      --max-width: 1150px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--background);
+      color: var(--text);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body, button, input, textarea {
+      font-family: "Manrope", sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    ::selection {
+      background: var(--purple);
+      color: white;
+    }
+
+    .container {
+      width: min(90%, var(--max-width));
+      margin-inline: auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 100px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: var(--purple-light);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 13px;
+    }
+
+    .section-heading h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .gradient-text {
+      color: var(--purple-light);
+      background: linear-gradient(110deg, #c6b2ff, #8b61dd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 23px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      font-size: 0.91rem;
+      font-weight: 800;
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--purple);
+      border-color: var(--purple);
+    }
+
+    .btn-primary:hover {
+      background: #7140c5;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(133, 84, 216, 0.2);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .btn-outline:hover {
+      background: var(--surface-light);
+      border-color: var(--purple-light);
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       BACKGROUND EFFECTS
+    ========================= */
+
+    #techBackground {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -3;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    .background-grid {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+
+      background-image:
+        linear-gradient(rgba(164, 126, 230, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(164, 126, 230, 0.035) 1px, transparent 1px);
+
+      background-size: 65px 65px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 90%
+      );
+    }
+
+    .ambient-glow {
+      position: fixed;
+      width: 480px;
+      height: 480px;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      background: rgba(88, 47, 150, 0.12);
+      filter: blur(100px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(11, 7, 18, 0.88);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .logo {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--purple-light);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--purple-light);
+    }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--purple-light);
+      background: var(--surface);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 43px;
+      height: 43px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO SECTION
+    ========================= */
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      padding: 85px 0;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--muted);
+      font-size: 0.77rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #a78bfa;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(167, 139, 250, 0.7);
+    }
+
+    .hero h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      font-weight: 700;
+      letter-spacing: -4px;
+      line-height: 1.04;
+      margin-bottom: 25px;
+    }
+
+    .hero-description {
+      max-width: 570px;
+      color: var(--muted);
+      font-size: 1.02rem;
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 35px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-meta span::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--purple-light);
+    }
+
+    .hero-visual {
+      position: relative;
+      max-width: 390px;
+      width: 100%;
+      margin: auto;
+    }
+
+    .portrait-frame {
+      position: relative;
+      padding: 12px;
+      border: 1px solid rgba(184, 154, 255, 0.3);
+      border-radius: 25px;
+      background: linear-gradient(
+        145deg,
+        rgba(133, 84, 216, 0.17),
+        rgba(255, 255, 255, 0.015)
+      );
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .portrait-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        transparent 30%,
+        rgba(184, 154, 255, 0.08),
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 16px;
+      background: var(--surface);
+    }
+
+    .portrait-caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-top: 17px;
+      padding: 0 5px 5px;
+    }
+
+    .portrait-caption strong {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .portrait-caption small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .portrait-number {
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--purple-light);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .floating-card {
+      position: absolute;
+      padding: 13px 17px;
+      background: #191127;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .floating-card strong {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.85rem;
+    }
+
+    .floating-card small {
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+
+    .floating-one {
+      top: 18%;
+      left: -55px;
+    }
+
+    .floating-two {
+      right: -40px;
+      bottom: 22%;
+    }
+
+    /* =========================
+       ABOUT SECTION
+    ========================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 65px;
+      align-items: start;
+    }
+
+    .about-card {
+      padding: 30px;
+      background: linear-gradient(
+        145deg,
+        rgba(32, 21, 50, 0.85),
+        rgba(18, 12, 28, 0.8)
+      );
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .about-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 18px;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-content h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      line-height: 1.3;
+      margin-bottom: 22px;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 18px;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+      margin-top: 28px;
+    }
+
+    .highlight {
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .highlight strong {
+      display: block;
+      font-size: 0.88rem;
+      margin-bottom: 4px;
+    }
+
+    .highlight span {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    /* =========================
+       FOCUS / SERVICES
+    ========================= */
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .focus-card {
+      position: relative;
+      padding: 30px;
+      background: rgba(23, 16, 35, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      transition: 0.3s ease;
+      overflow: hidden;
+    }
+
+    .focus-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(184, 154, 255, 0.45);
+      background: rgba(32, 21, 50, 0.9);
+    }
+
+    .focus-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: rgba(133, 84, 216, 0.12);
+      color: var(--purple-light);
+      font-size: 1.45rem;
+      margin-bottom: 24px;
+    }
+
+    .focus-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.18rem;
+      margin-bottom: 12px;
+    }
+
+    .focus-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.8;
+    }
+
+    .card-index {
+      position: absolute;
+      top: 22px;
+      right: 23px;
+      color: rgba(184, 154, 255, 0.35);
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700;
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .skill-panel {
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .skill-panel h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.15rem;
+      margin-bottom: 20px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.025);
+      border-radius: 7px;
+      color: #ded3f3;
+      font-size: 0.81rem;
+      font-weight: 700;
+    }
+
+    /* =========================
+       EDUCATION
+    ========================= */
+
+    .education-card {
+      max-width: 850px;
+      margin: auto;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 22px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .education-icon {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(133, 84, 216, 0.14);
+      border: 1px solid var(--border);
+      font-size: 1.6rem;
+    }
+
+    .education-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.3rem;
+      margin-bottom: 7px;
+    }
+
+    .education-card .institution {
+      color: var(--purple-light);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .education-card p:last-child {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .project-card {
+      padding: 28px;
+      background: linear-gradient(
+        145deg,
+        rgba(32, 21, 50, 0.7),
+        rgba(18, 12, 28, 0.9)
+      );
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(184, 154, 255, 0.4);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 23px;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: rgba(133, 84, 216, 0.15);
+      color: var(--purple-light);
+      font-size: 1.4rem;
+    }
+
+    .project-label {
+      color: var(--purple-light);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project-card h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 23px;
+    }
+
+    .project-link {
+      color: var(--purple-light);
+      font-size: 0.87rem;
+      font-weight: 800;
+    }
+
+    .project-link:hover {
+      color: white;
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    .contact-intro h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 2rem;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    .contact-intro > p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-bottom: 28px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .contact-icon {
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .contact-item small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      font-size: 0.87rem;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-form {
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .contact-form h3 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.35rem;
+      margin-bottom: 23px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 14px;
+      color: var(--text);
+      background: #100a19;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      outline: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--purple-light);
+    }
+
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+    }
+
+    .form-note {
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      text-align: center;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      background: rgba(11, 7, 18, 0.7);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer p {
+      color: var(--muted);
+      font-size: 0.79rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--purple-light);
+    }
+
+    /* =========================
+       BACK TO TOP
+    ========================= */
+
+    .back-to-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 900;
+      width: 45px;
+      height: 45px;
+      display: grid;
+      place-items: center;
+      background: var(--purple);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      font-size: 1.25rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: 0.25s ease;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================
+       RESPONSIVE DESIGN
+    ========================= */
+
+    @media (max-width: 1000px) {
+      .nav-links {
+        gap: 16px;
+      }
+
+      .hero-grid {
+        gap: 40px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2.5px;
+      }
+
+      .floating-one {
+        left: -20px;
+      }
+
+      .floating-two {
+        right: -15px;
+      }
+
+      .focus-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .section {
+        padding: 75px 0;
+      }
+
+      .nav-inner {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 5% 20px;
+        background: rgba(11, 7, 18, 0.98);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links li a {
+        display: block;
+        padding: 13px 5px;
+        border-bottom: 1px solid rgba(190, 160, 255, 0.07);
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 70px 0 65px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 12vw, 4.7rem);
+      }
+
+      .hero-visual {
+        width: min(85%, 370px);
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .projects-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .focus-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        margin-bottom: 35px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .floating-one {
+        left: -18px;
+      }
+
+      .floating-two {
+        right: -18px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .container {
+        width: 91%;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .hero-meta {
+        gap: 12px;
+      }
+
+      .about-card,
+      .focus-card,
+      .skill-panel,
+      .project-card,
+      .contact-form {
+        padding: 22px;
+      }
+
+      .education-card {
+        grid-template-columns: 1fr;
+        padding: 23px;
+      }
+
+      .about-highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-card {
+        padding: 10px 12px;
+      }
+
+      .floating-card strong {
+        font-size: 0.76rem;
+      }
+
+      .floating-card small {
+        font-size: 0.65rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Animated technology background -->
+  <canvas id="techBackground" aria-hidden="true"></canvas>
+  <div class="background-grid" aria-hidden="true"></div>
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <header class="navbar">
+    <div class="container nav-inner">
+
+      <a href="#home" class="logo" aria-label="MHYKA home">
+        <span>MHYKA</span>.
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >
+        ☰
+      </button>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#focus">Focus</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="nav-cta">Let's Connect ↗</a>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+
+         <!-- <div class="hero-label">
+            <span class="status-dot"></span>
+            Creative Mind. Digital Vision.
+          </div> -->
+
+          <h1>
+            Turning Ideas Into
+            <span class="gradient-text">Digital Impact.</span>
+          </h1>
+
+          <p class="hero-description">
+            I am Micah James — a creative software technologist
+            passionate about transforming ideas into meaningful visual
+            experiences and exploring the possibilities of the digital world.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">
+              Explore My Work <span></span>
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+              Let's Talk <span></span>
+            </a>
+          </div>
+
+          <div class="hero-meta">
+            <span>Creative Designer</span>
+            <span>Software Technologist</span>
+            
+          </div>
+
+        </div>
+
+        <div class="hero-visual reveal">
+
+          <div class="portrait-frame">
+
+            <img
+              src="assets/mhyka-portrait.jpg"
+              alt="Portrait of Micah James"
+              fetchpriority="high"
+            >
+
+           <!-- <div class="portrait-caption">
+              <div>
+                <strong>MHYKA</strong>
+                <small>Creative Designer & Tech Enthusiast</small>
+              </div>
+
+              <div class="portrait-number">01</div>
+            </div> -->
+
+          </div>
+
+        <!--  <div class="floating-card floating-one">
+            <strong>Creative Vision</strong>
+            <small>Ideas into visuals</small>
+          </div>
+
+          <div class="floating-card floating-two">
+            <strong>Digital Mindset</strong>
+            <small>Build. Create. Maintain.</small>
+          </div> -->
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="section" id="about">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">Get to Know Me</div>
+          <h2>Beyond the <span class="gradient-text">Screen</span></h2>
+          <p>
+           
+          </p>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-card reveal">
+            <h3>My Philosophy</h3>
+
+            <p>
+           
+            </p>
+
+            <p>
+              I believe in collaborations, thinking critically,
+              solving problems, and using creativity to make ideas easier
+              to understand and remember.
+            </p>
+
+            <p>
+              My goal is to keep building
+              a stronger connection between creativity and technology practically through hands-on projects.
+            </p>
+          </div>
+
+          <div class="about-content reveal">
+            <h3>
+              I turn creative thinking into
+              <span class="gradient-text">purposeful expression.</span>
+            </h3>
+
+            <p>
+              My interest is in technology and digital
+              skills shaping the future. I enjoy discovering new tools,
+              understanding how things work, and applying what I learn.
+            </p>
+
+            <p>
+              I approach every opportunity with curiosity, discipline, and
+              a willingness to grow.
+            </p>
+
+            <div class="about-highlights">
+
+              <div class="highlight">
+                <strong>Creative Thinking</strong>
+                <span>Ideating purposefully</span>
+              </div>
+
+              <div class="highlight">
+                <strong>Growth Mindset</strong>
+                <span>Always learning</span>
+              </div>
+
+              <div class="highlight">
+                <strong>Problem Solving</strong>
+                <span>Strategizing Approach</span>
+              </div>
+
+              <div class="highlight">
+                <strong>Future Focused</strong>
+                <span>Exploring Technology</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         FOCUS AREAS
+    ========================== -->
+
+    <section class="section" id="focus">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">What Drives Me</div>
+          <h2>My Areas of <span class="gradient-text">Focus.</span></h2>
+          <p>
+            
+          </p>
+        </div>
+
+        <div class="focus-grid">
+
+          <article class="focus-card reveal">
+            <span class="card-index">01</span>
+            <div class="focus-icon">✦</div>
+            <h3>Graphic Design</h3>
+            <p>
+              Creating visually compelling designs that communicate ideas,
+              express identities, capture attention, and connect brands
+              with their audiences.
+            </p>
+          </article>
+
+          <article class="focus-card reveal">
+            <span class="card-index">02</span>
+            <div class="focus-icon">⌘</div>
+            <h3>Technology</h3>
+            <p>
+              Exploring digital tools, understanding emerging technologies,
+              and developing practical knowledge that can solve real-world
+              problems.
+            </p>
+          </article>
+
+          <article class="focus-card reveal">
+            <span class="card-index">03</span>
+            <div class="focus-icon">◈</div>
+            <h3>Digital Creativity</h3>
+            <p>
+              Combining design principles, digital resources, and fresh ideas
+              to create engaging visual experiences for online audiences.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         SKILLS
+    ========================== -->
+
+    <section class="section" id="skills">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">My Toolkit</div>
+          <h2>Skills & <span class="gradient-text">Interests.</span></h2>
+          <p>
+         
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill-panel reveal">
+            <h3>Creative Skills</h3>
+
+            <div class="skill-list">
+              <span class="skill-tag">Graphic Design</span>
+              <span class="skill-tag">Video Editing</span>
+             
+              <span class="skill-tag">Photography</span>
+              
+              
+              <span class="skill-tag">Photo Editing</span>
+              <span class="skill-tag">Digital Content</span>
+            </div>
+          </div>
+
+          <div class="skill-panel reveal">
+            <h3>Technology & Development</h3>
+
+            <div class="skill-list">
+              <span class="skill-tag">Database Management</span>
+              <span class="skill-tag">Python & Javascript</span>
+              <span class="skill-tag">Git & GitHub</span>
+              <span class="skill-tag">Artificial Intelligence</span>
+              <span class="skill-tag">Cryptography</span>
+             
+             
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+
+    <section class="section" id="education">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">My Academic Journey</div>
+          <h2>Education & <span class="gradient-text">Growth.</span></h2>
+          <p>
+           
+          </p>
+        </div>
+
+        <div class="education-card reveal">
+
+          <div class="education-icon">🎓</div>
+
+          <div>
+            <h3>Federal University of Technology, Ikot Abasi</h3>
+
+            <p class="institution">
+              Academic Institution
+            </p>
+
+            <p>
+              My academic journey is part of my commitment to learning,
+              personal development, and building the knowledge needed to
+              contribute meaningfully through creativity and technology.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================
+         PROJECTS
+    ========================== -->
+
+    <section class="section" id="projects">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">Selected Work</div>
+          <h2>Ideas in <span class="gradient-text">Action.</span></h2>
+          <p>
+         
+          </p>
+        </div>
+
+        <div class="projects-grid">
+
+          <article class="project-card reveal">
+
+            <div class="project-top">
+              <div class="project-icon">✦</div>
+              <span class="project-label">Graphic Design</span>
+            </div>
+
+            <h3>Visual Design & Branding</h3>
+
+            <p>
+              Creative visual concepts, promotional flyers, brand-focused
+              graphics, and digital designs developed to communicate messages
+              with clarity and style.
+            </p>
+
+          <!--  <a
+              href="https://github.com/Mhyka900"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore My GitHub ↗
+            </a> -->
+
+          </article>
+
+          <article class="project-card reveal">
+
+            <div class="project-top">
+              <div class="project-icon">⌘</div>
+              <span class="project-label">Software Development</span>
+            </div>
+
+            <h3>Applications & Web Designing</h3>
+
+            <p>
+              Personal portfolios, business websites, blogs etc built to introduce, showcase
+              and communicate professional identity, products and services of entities as well
+              establish their presence online.
+            </p>
+
+            <!--<a
+              href="https://github.com/Mhyka900/My-Portfolio"
+              class="project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Repository ↗
+            </a> -->
+
+          </article>
+
+          <article class="project-card reveal">
+
+            <div class="project-top">
+              <div class="project-icon">◈</div>
+              <span class="project-label">Digital Creativity</span>
+            </div>
+
+            <h3>Content Creation & Education</h3>
+
+            <p>
+              Exploring creative ways to present information, develop
+              engaging visual content, and combine digital tools with
+              strategic communication.
+            </p>
+
+           <!-- <a href="#contact" class="project-link">
+              Discuss a Project ↗
+            </a> -->
+
+          </article>
+
+          <article class="project-card reveal">
+
+            <div class="project-top">
+              <div class="project-icon">◎</div>
+              <span class="project-label">Learning & Innovation</span>
+            </div>
+
+            <h3>Technology Exploration</h3>
+
+            <p>
+              Help you  develop understanding of digital tools, web technologies,
+              and emerging innovations through practice, experimentation, supportive and continuous  learning.
+            </p>
+
+            <!-- <a href="#contact" class="project-link">
+              Connect With Me ↗
+            </a> -->
+
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="section" id="contact">
+      <div class="container">
+
+        <div class="section-heading reveal">
+          <div class="eyebrow">Get in Touch</div>
+          <h2>Let's Create Something <span class="gradient-text">Meaningful.</span></h2>
+          <p>
+            Have a project, creative idea, or opportunity in mind?
+            I would love to hear from you.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-intro reveal">
+
+            <h4>
+              "Good ideas become better when we
+              <span class="gradient-text">work together"</span> - Micah James.
+            </h4>
+
+            <p>
+              Reach out for graphic design projects, software development, creative collaborations,
+              technology discussions, or other professional opportunities.
+            </p>
+
+            <a
+              class="contact-item"
+              href="mailto:mhyka001@gmail.com"
+            >
+              <span class="contact-icon">✉</span>
+              <span>
+                <small>Email</small>
+                <strong>mhyka001@gmail.com</strong>
+              </span>
+            </a>
+
+            <a
+              class="contact-item"
+              href="https://wa.me/2348081772406"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-icon">☏</span>
+              <span>
+                <small>WhatsApp</small>
+                <strong>Let's chat</strong>
+              </span>
+            </a>
+
+           <!-- <a
+              class="contact-item"
+              href="https://github.com/Mhyka900"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class="contact-icon">⌘</span>
+              <span>
+                <small>GitHub</small>
+                <strong>github.com/Mhyka900</strong>
+              </span>
+            </a> -->
+
+          </div>
+
+          <form class="contact-form reveal" id="contactForm">
+
+            <h3>Send Me a Message</h3>
+
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                autocomplete="name"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="What would you like to discuss?"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell me about your idea or project..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Prepare Email <span>↗</span>
+            </button>
+
+            <p class="form-note">
+              Your email application will open with your message prepared.
+            </p>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <a href="#home" class="logo">
+        <span>MHYKA</span>.
+      </a>
+
+      <p>
+        © <span id="currentYear"></span> MHYKA. 
+      </p>
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+
+      <!--  <a
+          href="https://github.com/Mhyka900"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a> -->
+      </div>
+
+    </div>
+  </footer>
+
+  <button
+    class="back-to-top"
+    id="backToTop"
+    aria-label="Back to top"
+    title="Back to top"
+  >
+    ↑
+  </button>
+
+  <script>
+    /* =========================
+       MOBILE NAVIGATION
+    ========================= */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const navigationLinks = document.querySelectorAll(".nav-links a");
+
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      menuToggle.textContent = "☰";
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation menu" : "Open navigation menu"
+      );
+
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navigationLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("click", (event) => {
+      if (
+        !navLinks.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    });
+
+    /* =========================
+       SCROLL REVEAL ANIMATIONS
+    ========================= */
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if ("IntersectionObserver" in window && !reducedMotion) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12
+        }
+      );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+    } else {
+      revealElements.forEach((element) => {
+        element.classList.add("visible");
+      });
+    }
+
+    /* =========================
+       ACTIVE NAVIGATION LINK
+    ========================= */
+
+    const pageSections = document.querySelectorAll("main section[id]");
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const sectionId = entry.target.id;
+
+              navigationLinks.forEach((link) => {
+                link.classList.toggle(
+                  "active",
+                  link.getAttribute("href") === "#" + sectionId
+                );
+              });
+            }
+          });
+        },
+        {
+          rootMargin: "-35% 0px -55% 0px"
+        }
+      );
+
+      pageSections.forEach((section) => {
+        sectionObserver.observe(section);
+      });
+    }
+
+    /* =========================
+       BACK TO TOP BUTTON
+    ========================= */
+
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        backToTop.classList.toggle(
+          "visible",
+          window.scrollY > 450
+        );
+      },
+      { passive: true }
+    );
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: reducedMotion ? "auto" : "smooth"
+      });
+    });
+
+    /* =========================
+       AUTOMATIC COPYRIGHT YEAR
+    ========================= */
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    /* =========================
+       CONTACT FORM
+    ========================= */
+
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !subject || !message) {
+        alert("Please complete all the fields before continuing.");
+        return;
+      }
+
+      const emailSubject = encodeURIComponent(
+        subject + " — Message from " + name
+      );
+
+      const emailBody = encodeURIComponent(
+        "Hello MHYKA,\n\n" +
+        message +
+        "\n\nFrom: " + name +
+        "\nEmail: " + email
+      );
+
+      const mailtoLink =
+        "mailto:mhyka001@gmail.com" +
+        "?subject=" + emailSubject +
+        "&body=" + emailBody;
+
+      window.location.href = mailtoLink;
+    });
+
+    /* =========================
+       ANIMATED TECH BACKGROUND
+    ========================= */
+
+    (() => {
+      const canvas = document.getElementById("techBackground");
+      const context = canvas.getContext("2d");
+
+      if (!context) return;
+
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      const particles = [];
+
+      let width = 0;
+      let height = 0;
+      let animationFrame = null;
+
+      const particleCount =85;
+      const connectionDistance = 130;
+
+      function resizeCanvas() {
+        const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+
+        width = window.innerWidth;
+        height = window.innerHeight;
+
+        canvas.width = Math.floor(width * pixelRatio);
+        canvas.height = Math.floor(height * pixelRatio);
+
+        context.setTransform(
+          pixelRatio,
+          0,
+          0,
+          pixelRatio,
+          0,
+          0
+        );
+
+        particles.length = 0;
+
+        for (let i = 0; i < particleCount; i++) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.25,
+            vy: (Math.random() - 0.5) * 0.25,
+            radius: Math.random() * 1.5 + 0.6
+          });
+        }
+
+        drawFrame();
+      }
+
+      function drawFrame() {
+        context.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const particle = particles[i];
+
+          if (!prefersReducedMotion) {
+            particle.x += particle.vx;
+            particle.y += particle.vy;
+
+            if (particle.x < 0 || particle.x > width) {
+              particle.vx *= -1;
+            }
+
+            if (particle.y < 0 || particle.y > height) {
+              particle.vy *= -1;
+            }
+          }
+
+          context.beginPath();
+
+          context.arc(
+            particle.x,
+            particle.y,
+            particle.radius,
+            0,
+            Math.PI * 2
+          );
+
+          context.fillStyle = "rgba(184, 154, 255, 0.65)";
+          context.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const other = particles[j];
+
+            const dx = particle.x - other.x;
+            const dy = particle.y - other.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < connectionDistance) {
+              const opacity =
+                (1 - distance / connectionDistance) * 0.17;
+
+              context.beginPath();
+              context.moveTo(particle.x, particle.y);
+              context.lineTo(other.x, other.y);
+
+              context.strokeStyle =
+                "rgba(158, 120, 225, " + opacity + ")";
+
+              context.lineWidth = 0.7;
+              context.stroke();
+            }
+          }
+        }
+      }
+
+      function animate() {
+        drawFrame();
+
+        if (!prefersReducedMotion) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      }
+
+      function startAnimation() {
+        if (document.hidden) return;
+
+        if (animationFrame !== null) {
+          cancelAnimationFrame(animationFrame);
+        }
+
+        if (prefersReducedMotion) {
+          drawFrame();
+        } else {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      }
+
+      function stopAnimation() {
+        if (animationFrame !== null) {
+          cancelAnimationFrame(animationFrame);
+          animationFrame = null;
+        }
+      }
+
+      window.addEventListener("resize", () => {
+        resizeCanvas();
+        startAnimation();
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+          stopAnimation();
+        } else {
+          startAnimation();
+        }
+      });
+
+      resizeCanvas();
+      startAnimation();
+    })();
+  </script>
+
+</body>
+</html>
